@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-root',
+    selector: 'vc-app',
     templateUrl: './app.component.html',
     styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
-    title = 'angular-mentoring-videocourses';
+    public title = 'angular-mentoring-videocourses';
 }

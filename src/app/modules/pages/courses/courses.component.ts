@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-courses',
+    selector: 'vc-courses',
     templateUrl: './courses.component.html',
    styleUrls: [ './courses.component.css' ]
 })

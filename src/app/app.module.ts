@@ -2,23 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
-import { LogoComponent } from './layout/logo/logo.component';
-import { CoursesComponent } from './pages/courses/courses.component';
+import { CoursesComponent } from './modules/pages/courses/courses.component';
+import { LayoutModule } from './modules/layout/layout.module';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        LogoComponent,
-        CoursesComponent
-    ],
     imports: [
+        LayoutModule,
         BrowserModule
     ],
-    providers: [],
+    declarations: [
+        AppComponent,
+        CoursesComponent
+    ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
