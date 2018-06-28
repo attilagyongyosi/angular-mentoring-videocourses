@@ -1,0 +1,8 @@
+$ACTION_BAR_HEIGHT: 50px;
+
+:host {
+    display: flex;
+    align-content: center;
+    height: $ACTION_BAR_HEIGHT;
+    background-color: #E0E0E0;
+}

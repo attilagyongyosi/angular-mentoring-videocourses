@@ -1,12 +1,19 @@
 import {NgModule} from '@angular/core';
-import {CoursesPage} from './pages/courses.page';
+import {CoursesPageComponent} from './pages/courses.page';
+import { ActionBarComponent } from './components/action-bar/action-bar.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
+    imports: [
+        SharedModule
+    ],
     declarations: [
-        CoursesPage
+        CoursesPageComponent,
+        ActionBarComponent
     ],
     exports: [
-        CoursesPage
+        CoursesPageComponent,
+        ActionBarComponent
     ]
 })
 export class CoursesModule {}
