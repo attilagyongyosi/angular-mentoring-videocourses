@@ -1,0 +1,45 @@
+:host {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 8px;
+
+    box-shadow: 2px 3px 23px 0px rgba(0,0,0,0.1);
+    background-color: #FFFFFF;
+
+    .course-item__image-placeholder {
+        width: 120px;
+        height: 120px;
+        margin-right: 16px;
+        margin-left: 32px;
+        border: 1px solid grey;
+        border-radius: 3px;
+    }
+
+    .course-item__info-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .course-item__title {
+        font-size: 1.2em;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .course-item__description {
+        font-weight: 300;
+    }
+
+    .course-item__metadata {
+        margin-top: 16px;
+
+        & > span {
+            font-size: 0.7em;
+            margin-right: 16px;
+            padding: 4px;
+            background-color: #E0E0E0;
+        }
+    }
+}
