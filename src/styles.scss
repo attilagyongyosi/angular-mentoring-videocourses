@@ -4,7 +4,14 @@
 }
 
 html {
+    display: flex;
     font-family: 'Oswald';
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex: 1;
 }
 
 input {
