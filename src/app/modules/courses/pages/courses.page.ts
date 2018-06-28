@@ -8,14 +8,12 @@ import { Subscription } from 'rxjs';
     styleUrls: [ './courses.page.scss' ]
 })
 export class CoursesPageComponent implements OnInit, OnDestroy {
-    public searchTerm = '';
-
     private searchSubscription: Subscription;
 
     constructor(private searchService: SearchService) { }
 
     public ngOnInit(): void {
-        this.searchSubscription = this.searchService.searchEvent$.subscribe(term => this.searchTerm = term);
+        this.searchSubscription = this.searchService.searchEvent$.subscribe(console.log);
     }
 
     public ngOnDestroy(): void {

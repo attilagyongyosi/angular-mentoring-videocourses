@@ -2,11 +2,12 @@ $NORMAL_BUTTON_COLOR: #0D47A1;
 
 :host {
     .button {
+        font-family: 'Oswald';
         text-transform: uppercase;
         font-weight: 500;
         color: #FFFFFF;
         border: none;
-        padding: 10px 15px;
+        padding: 5px 10px;
         cursor: pointer;
     }
 

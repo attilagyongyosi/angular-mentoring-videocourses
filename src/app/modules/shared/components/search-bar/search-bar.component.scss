@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    align-content: center;
+
+    .search-bar__input {
+        width: 300px;
+    }
+
+    .search-bar__search-button {
+        margin-left: 5px;
+    }
+}

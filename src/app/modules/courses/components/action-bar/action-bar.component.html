@@ -1,3 +1,5 @@
-<div class="action-bar">
-    <vc-search-bar (onSearch)="emitSearch($event)"></vc-search-bar>
-</div>
+<vc-breadcrumbs class="action-bar__breadcrumbs"></vc-breadcrumbs>
+<vc-search-bar class="action-bar__search"
+               (onSearch)="emitSearch($event)"
+               placeholder="Name, author, fragment, date">
+</vc-search-bar>

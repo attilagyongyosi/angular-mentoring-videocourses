@@ -1,2 +1,10 @@
-<input type="text" class="search-bar__input" [(ngModel)]="searchTerm">
-<vc-button class="search-bar__search-button" label="Search" type="normal" (click)="emitSearch()"></vc-button>
+<input type="text"
+       [placeholder]="placeholder"
+       class="search-bar__input"
+       [(ngModel)]="searchTerm">
+
+<vc-button class="search-bar__search-button"
+           label="Search"
+           type="normal"
+           (click)="emitSearch()">
+</vc-button>

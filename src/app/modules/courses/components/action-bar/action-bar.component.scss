@@ -1,8 +1,19 @@
-$ACTION_BAR_HEIGHT: 50px;
+$ACTION_BAR_HEIGHT: 40px;
 
 :host {
     display: flex;
-    align-content: center;
+    align-items: center;
+    padding: 8px;
     height: $ACTION_BAR_HEIGHT;
     background-color: #E0E0E0;
+
+    .action-bar__search {
+        & .search-bar__input {
+            background-color: #E0E0E0;
+        }
+    }
+
+    .action-bar__breadcrumbs {
+        margin-right: 20px;
+    }
 }
