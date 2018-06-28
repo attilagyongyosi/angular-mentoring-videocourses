@@ -11,4 +11,8 @@ export class CourseListComponent {
     @Input()
     public courses: CourseInterface[] = [];
 
+    public deleteCourse(id: number): void {
+        console.log('Course to delete:', id);
+    }
+
 }

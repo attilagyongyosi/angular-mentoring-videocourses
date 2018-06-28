@@ -4,17 +4,20 @@ $ACTION_BAR_HEIGHT: 40px;
     display: flex;
     align-items: center;
     padding: 8px;
+    width: 100%;
     height: $ACTION_BAR_HEIGHT;
     background-color: #E0E0E0;
+
+
+    .action-bar__breadcrumbs {
+        margin-left: 24px;
+        margin-right: 20px;
+    }
 
     .action-bar__search {
         & .search-bar__input {
             background-color: #E0E0E0;
         }
-    }
-
-    .action-bar__breadcrumbs {
-        margin-right: 20px;
     }
 
     .action-bar__add-course {

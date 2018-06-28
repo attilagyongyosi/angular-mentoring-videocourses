@@ -3,7 +3,12 @@
     <p class="course-item__title">{{ course.title }}</p>
     <p class="course-item__description">{{ course.description }}</p>
     <div class="course-item__metadata">
+        <!-- todo: duration pipe! -->
         <span>{{ course.duration | date:'hh:mm:ss' }}</span>
         <span>{{ course.creationDate | date }}</span>
     </div>
+</div>
+<div class="course-item__buttons">
+    <vc-button label="Edit" class="course-item__edit"></vc-button>
+    <vc-button label="Delete" class="course-item__delete" (click)="emitDelete()"></vc-button>
 </div>

@@ -20,6 +20,7 @@
     .course-item__info-panel {
         display: flex;
         flex-direction: column;
+        flex: 1;
     }
 
     .course-item__title {
@@ -40,6 +41,18 @@
             margin-right: 16px;
             padding: 4px;
             background-color: #E0E0E0;
+        }
+    }
+
+    .course-item__buttons {
+        margin-right: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        & > * {
+            margin-bottom: 4px;
         }
     }
 }
