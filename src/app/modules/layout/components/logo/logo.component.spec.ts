@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LogoComponent } from './logo.component';
 
-fdescribe('LogoComponent', () => {
+describe('LogoComponent', () => {
     let component: LogoComponent;
     let fixture: ComponentFixture<LogoComponent>;
 
@@ -22,7 +22,7 @@ fdescribe('LogoComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    fit('should display logo', () => {
+    it('should display logo', () => {
         const compiled = fixture.debugElement.nativeElement;
         expect(compiled.querySelector('.logo').src).toContain('assets/images/epam-logo.svg');
     });
