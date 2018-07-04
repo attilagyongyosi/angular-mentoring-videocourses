@@ -1,14 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { LogoComponent } from './logo.component';
 
-describe('LogoComponent', () => {
+fdescribe('LogoComponent', () => {
     let component: LogoComponent;
     let fixture: ComponentFixture<LogoComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-          declarations: [ LogoComponent ]
+            declarations: [ LogoComponent ]
         })
         .compileComponents();
     }));
@@ -19,7 +18,12 @@ describe('LogoComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    fit('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    fit('should display logo', () => {
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('.logo').src).toContain('assets/images/epam-logo.svg');
     });
 });
