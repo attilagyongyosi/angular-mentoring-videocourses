@@ -25,6 +25,8 @@ describe('SearchBarComponent', () => {
     });
 
     it('should emit event on button click', (done) => {
+        spyOn(component, 'emitSearch').and.callThrough();
+
         component.onSearch.subscribe(searchTerm => {
             expect(typeof searchTerm).toBe('string');
             expect(searchTerm).toBe('test');

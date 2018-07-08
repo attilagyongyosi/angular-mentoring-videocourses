@@ -19,7 +19,7 @@ class CourseItemHostComponent {
     };
 }
 
-fdescribe('CourseItemComponent', () => {
+describe('CourseItemComponent', () => {
     let component: CourseItemComponent;
     let fixture: ComponentFixture<CourseItemComponent>;
 
