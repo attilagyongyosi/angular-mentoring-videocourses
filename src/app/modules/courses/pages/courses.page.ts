@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from '../../shared/services/search.service';
 import { Subscription } from 'rxjs';
 import { Course } from '../../shared/models/course/course';
-import { C } from '@angular/core/src/render3';
 
 @Component({
     selector: 'vc-courses-page',
