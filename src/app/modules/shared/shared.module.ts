@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { SearchService } from './services/search.service';
 import { FormsModule } from '@angular/forms';
 import { DurationPipe } from './pipes/duration.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
 
 @NgModule({
     imports: [
@@ -16,13 +17,15 @@ import { DurationPipe } from './pipes/duration.pipe';
         ButtonComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
-        DurationPipe
+        DurationPipe,
+        OrderByPipe
     ],
     exports: [
         ButtonComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
-        DurationPipe
+        DurationPipe,
+        OrderByPipe
     ],
     providers: [
         SearchService

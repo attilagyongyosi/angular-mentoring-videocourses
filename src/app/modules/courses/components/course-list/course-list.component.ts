@@ -15,4 +15,8 @@ export class CourseListComponent {
         console.log('Course to delete:', id);
     }
 
+    public sort(course1: CourseInterface, course2: CourseInterface): number {
+        return course2.creationDate.getTime() - course1.creationDate.getTime();
+    }
+
 }

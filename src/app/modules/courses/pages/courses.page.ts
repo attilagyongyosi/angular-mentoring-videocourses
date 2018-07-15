@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from '../../shared/services/search.service';
 import { Subscription } from 'rxjs';
 import { Course } from '../../shared/models/course/course';
+import { CourseInterface } from '../../shared/models/course/course.interface';
 
 @Component({
     selector: 'vc-courses-page',
@@ -25,7 +26,7 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
                 id: 1,
                 title: 'AngularJS For Beginners',
                 description: 'This course is extremely funky for people who want to learn AngularJS. True story, come and learn, yo',
-                creationDate: new Date('2013-04-03'),
+                creationDate: new Date('2023-04-03'),
                 duration: 55,
                 topRated: true
             }),
