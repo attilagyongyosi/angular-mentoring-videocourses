@@ -1,1 +1,5 @@
-<vc-course-item *ngFor="let course of courses" [course]="course" (onDelete)="deleteCourse($event)"></vc-course-item>
+<vc-course-item *ngFor="let course of courses"
+                vcCourseBorder
+                [course]="course"
+                (onDelete)="deleteCourse($event)">
+</vc-course-item>

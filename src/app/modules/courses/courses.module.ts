@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { CourseItemComponent } from './components/course-item/course-item.component';
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CommonModule } from '@angular/common';
+import { CourseBorderDirective } from './directives/course-border.directive';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
         CoursesPageComponent,
         ActionBarComponent,
         CourseItemComponent,
-        CourseListComponent
+        CourseListComponent,
+        CourseBorderDirective
     ],
     exports: [
         CoursesPageComponent,

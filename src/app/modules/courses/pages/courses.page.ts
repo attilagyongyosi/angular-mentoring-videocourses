@@ -33,7 +33,7 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
                 title: 'Introduction to Frontend Fundamentals',
                 description: `Always wondered how to make websites? Tired of not having a job and having raw furniture panels for breakfast?
                           Learn the inside-out of web development in 5 minutes!`,
-                creationDate: new Date('2016-11-23'),
+                creationDate: new Date('2019-11-23'),
                 duration: 300000
             }),
             new Course({
@@ -41,7 +41,7 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
                 title: 'Basics of Presentation Excellence',
                 description: `Afraid of PowerPoint? People fall asleep during your pitch?
                           Fear no more: watch this video and become the presentation ninja guru master Jedi you are destined to be!`,
-                creationDate: new Date('2017-05-11'),
+                creationDate: new Date('2018-07-11'),
                 duration: 12543876
             })
         ];
