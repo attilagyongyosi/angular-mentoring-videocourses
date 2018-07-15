@@ -1,19 +1,35 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CoursesPageComponent } from './courses.page';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
 import { SearchService } from '../../shared/services/search.service';
 import { Subject } from 'rxjs';
+import { FilterPipe } from '../../shared/pipes/filter/filter.pipe';
+import { CourseService } from '../../shared/course/services/course.service';
+
+@Pipe({
+    name: 'vcFilter'
+})
+class MockFilterPipe implements PipeTransform {
+    public transform(value: any[], ...args: any[]): any[] {
+        return value.concat();
+    }
+}
 
 describe('Courses Page Component', () => {
     let component: CoursesPageComponent;
     let fixture: ComponentFixture<CoursesPageComponent>;
     let searchServiceStub: Partial<SearchService>;
+    let courseServiceStub: Partial<CourseService>;
 
     beforeEach(async(() => {
         searchServiceStub = {
             searchEvent$: new Subject(),
             search: () => { return; }
+        };
+
+        courseServiceStub = {
+            getAll: () => { return []; }
         };
 
         TestBed.configureTestingModule({
@@ -22,6 +38,12 @@ describe('Courses Page Component', () => {
             providers: [{
                 provide: SearchService,
                 useValue: searchServiceStub
+            }, {
+                provide: CourseService,
+                useValue: courseServiceStub
+            }, {
+                provide: FilterPipe,
+                useClass: MockFilterPipe
             }]
         })
         .compileComponents();

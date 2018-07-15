@@ -1,9 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseItemComponent } from './course-item.component';
-import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { Component, NO_ERRORS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
 import { Course } from '../../../shared/course/model/course';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
+
+@Pipe({
+    name: 'vcDuration'
+})
+class MockDurationPipe implements PipeTransform {
+    public transform(value: number, ...args: any[]): string {
+        return '' + value;
+    }
+}
 
 @Component({
     selector: 'vc-course-item-host',
@@ -28,7 +37,7 @@ describe('CourseItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ CourseItemComponent, CourseItemHostComponent ],
+            declarations: [ CourseItemComponent, CourseItemHostComponent, MockDurationPipe ],
             schemas: [ NO_ERRORS_SCHEMA ]
         })
         .compileComponents();
@@ -71,13 +80,13 @@ describe('CourseItemComponent', () => {
         const compiled = fixture.debugElement.nativeElement;
 
         const title = compiled.querySelector('.course-item__title');
-        expect(title.textContent).toBe('Test Course');
+        expect(title.textContent).toBe('TEST COURSE');
 
         const description = compiled.querySelector('.course-item__description');
         expect(description.textContent).toBe('Some description.');
 
         const duration = compiled.querySelector('.course-item__duration');
-        expect(duration.textContent).toBe('1h 7min');
+        expect(duration.textContent).toBe('67');
 
         const creationDate = compiled.querySelector('.course-item__creation');
         expect(creationDate.textContent).toBe('May 5, 2011');
@@ -116,13 +125,13 @@ describe('CourseItemComponent', () => {
         const compiledHost = hostFixture.debugElement.nativeElement;
 
         const title = compiledHost.querySelector('.course-item__title');
-        expect(title.textContent).toBe('Test Course');
+        expect(title.textContent).toBe('TEST COURSE');
 
         const description = compiledHost.querySelector('.course-item__description');
         expect(description.textContent).toBe('My description.');
 
         const duration = compiledHost.querySelector('.course-item__duration');
-        expect(duration.textContent).toBe('45min');
+        expect(duration.textContent).toBe('45');
 
         const creationDate = compiledHost.querySelector('.course-item__creation');
         expect(creationDate.textContent).toBe('Jul 7, 1949');

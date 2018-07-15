@@ -1,8 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NO_ERRORS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
+
+@Pipe({
+    name: 'vcOrderBy'
+})
+class MockOrderByPipe implements PipeTransform {
+    public transform(value: any[], ...args: any[]): any[] {
+        return value.concat();
+    }
+}
 
 describe('CourseListComponent', () => {
     let component: CourseListComponent;
@@ -10,7 +19,7 @@ describe('CourseListComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ CourseListComponent ],
+            declarations: [ CourseListComponent, MockOrderByPipe ],
             schemas: [ NO_ERRORS_SCHEMA ]
         })
         .compileComponents();

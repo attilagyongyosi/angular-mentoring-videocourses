@@ -7,7 +7,6 @@
     </div>
     <p class="course-item__description">{{ course?.description }}</p>
     <div class="course-item__metadata">
-        <!-- todo: duration pipe! -->
         <span class="course-item__duration">{{ course?.duration | vcDuration }}</span>
         <span class="course-item__creation">{{ course?.creationDate | date }}</span>
     </div>
