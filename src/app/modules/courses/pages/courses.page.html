@@ -1,3 +1,4 @@
 <vc-action-bar></vc-action-bar>
 <vc-course-list [courses]="mockCourses" class="courses-page__list"></vc-course-list>
+<p *ngIf="!mockCourses.length">No data. Feel free to add new course.</p>
 <vc-button label="Load more" (click)="loadMore()"></vc-button>
