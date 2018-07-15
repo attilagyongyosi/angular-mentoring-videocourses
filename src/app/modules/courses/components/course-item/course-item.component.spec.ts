@@ -127,4 +127,18 @@ describe('CourseItemComponent', () => {
         const creationDate = compiledHost.querySelector('.course-item__creation');
         expect(creationDate.textContent).toBe('Jul 7, 1949');
     });
+
+    it('should render star icon for top-rated courses', () => {
+        component.course = {
+            id: 2,
+            title: 'TopRated',
+            description: 'This course is top rated.',
+            duration: 436746374,
+            creationDate: new Date(),
+            topRated: true
+        };
+
+        fixture.detectChanges();
+        expect(fixture.debugElement.nativeElement.querySelector('.course-item__star')).not.toBe(null);
+    });
 });

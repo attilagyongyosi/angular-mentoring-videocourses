@@ -26,7 +26,8 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
                 title: 'AngularJS For Beginners',
                 description: 'This course is extremely funky for people who want to learn AngularJS. True story, come and learn, yo',
                 creationDate: new Date('2013-04-03'),
-                duration: 37651223
+                duration: 37651223,
+                topRated: true
             }),
             new Course({
                 id: 2,

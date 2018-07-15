@@ -5,7 +5,7 @@ import { CourseInterface } from '../../shared/models/course/course.interface';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourseBorderDirective } from './course-border.directive';
 
-fdescribe('Course Border Directive', () => {
+describe('Course Border Directive', () => {
     let fixture: ComponentFixture<TestHostComponent>;
     let component: TestHostComponent;
 
