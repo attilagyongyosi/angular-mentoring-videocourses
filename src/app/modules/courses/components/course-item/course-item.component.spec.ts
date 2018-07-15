@@ -15,7 +15,7 @@ class CourseItemHostComponent {
         title: 'Test Course',
         description: 'My description.',
         creationDate: new Date('1949-07-07'),
-        duration: 437438437
+        duration: 45
     };
 }
 
@@ -62,7 +62,7 @@ describe('CourseItemComponent', () => {
         component.course = new Course({
             id: 1,
             title: 'Test Course',
-            duration: 12355663,
+            duration: 67,
             creationDate: new Date('2011-05-05'),
             description: 'Some description.',
         });
@@ -77,7 +77,7 @@ describe('CourseItemComponent', () => {
         expect(description.textContent).toBe('Some description.');
 
         const duration = compiled.querySelector('.course-item__duration');
-        expect(duration.textContent).toBe('04:25:55');
+        expect(duration.textContent).toBe('1h 7min');
 
         const creationDate = compiled.querySelector('.course-item__creation');
         expect(creationDate.textContent).toBe('May 5, 2011');
@@ -89,7 +89,7 @@ describe('CourseItemComponent', () => {
             title: 'Some Course',
             description: 'Some text.',
             creationDate: new Date('2011-06-28'),
-            duration: 78328328
+            duration: 56
         };
 
         fixture.detectChanges();
@@ -122,7 +122,7 @@ describe('CourseItemComponent', () => {
         expect(description.textContent).toBe('My description.');
 
         const duration = compiledHost.querySelector('.course-item__duration');
-        expect(duration.textContent).toBe('02:30:38');
+        expect(duration.textContent).toBe('45min');
 
         const creationDate = compiledHost.querySelector('.course-item__creation');
         expect(creationDate.textContent).toBe('Jul 7, 1949');
@@ -133,7 +133,7 @@ describe('CourseItemComponent', () => {
             id: 2,
             title: 'TopRated',
             description: 'This course is top rated.',
-            duration: 436746374,
+            duration: 12,
             creationDate: new Date(),
             topRated: true
         };

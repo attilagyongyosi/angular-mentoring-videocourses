@@ -2,13 +2,13 @@
 
 <div class="course-item__info-panel">
     <div class="course-item__title-row">
-        <span class="course-item__title">{{ course?.title }}</span>
+        <span class="course-item__title">{{ course?.title | uppercase }}</span>
         <span *ngIf="course?.topRated" class="course-item__star">★</span>
     </div>
     <p class="course-item__description">{{ course?.description }}</p>
     <div class="course-item__metadata">
         <!-- todo: duration pipe! -->
-        <span class="course-item__duration">{{ course?.duration | date:'hh:mm:ss' }}</span>
+        <span class="course-item__duration">{{ course?.duration | vcDuration }}</span>
         <span class="course-item__creation">{{ course?.creationDate | date }}</span>
     </div>
 </div>

@@ -31,13 +31,13 @@ describe('CourseListComponent', () => {
             id: 1,
             title: 'Test Course 1',
             description: 'Description 1',
-            duration: 3232748,
+            duration: 12,
             creationDate: new Date('2007-07-15')
         }, {
             id: 2,
             title: 'Test Course 2',
             description: 'Description 2',
-            duration: 434382,
+            duration: 167,
             creationDate: new Date('2017-07-17')
         }];
 

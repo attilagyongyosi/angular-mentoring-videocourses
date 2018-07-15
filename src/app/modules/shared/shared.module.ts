@@ -5,6 +5,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { CommonModule } from '@angular/common';
 import { SearchService } from './services/search.service';
 import { FormsModule } from '@angular/forms';
+import { DurationPipe } from './pipes/duration.pipe';
 
 @NgModule({
     imports: [
@@ -14,12 +15,14 @@ import { FormsModule } from '@angular/forms';
     declarations: [
         ButtonComponent,
         BreadcrumbsComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        DurationPipe
     ],
     exports: [
         ButtonComponent,
         BreadcrumbsComponent,
-        SearchBarComponent
+        SearchBarComponent,
+        DurationPipe
     ],
     providers: [
         SearchService

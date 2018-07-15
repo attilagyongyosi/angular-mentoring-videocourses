@@ -22,7 +22,7 @@ describe('Course Border Directive', () => {
             id: 1,
             title: 'Test',
             description: 'test',
-            duration: 483738758,
+            duration: 66,
             creationDate: moment().subtract(CourseBorderDirective.FRESH_THRESHOLD - 2, 'days').toDate()
         };
 
@@ -35,7 +35,7 @@ describe('Course Border Directive', () => {
             id: 1,
             title: 'Test',
             description: 'test',
-            duration: 483738758,
+            duration: 211,
             creationDate: new Date('2020-08-08')
         };
 
