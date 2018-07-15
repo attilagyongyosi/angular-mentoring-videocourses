@@ -1,6 +1,6 @@
 import { Directive, HostBinding, Input } from '@angular/core';
 import * as moment from 'moment';
-import { CourseInterface } from '../../shared/models/course/course.interface';
+import { CourseInterface } from '../../shared/course/model/course.interface';
 
 @Directive({
     selector: '[vcCourseBorder]'

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { DurationPipe } from './pipes/duration/duration.pipe';
 import { OrderByPipe } from './pipes/order-by/order-by.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
+import { CourseService } from './course/services/course.service';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
         FilterPipe
     ],
     providers: [
+        CourseService,
         SearchService,
         FilterPipe
     ]

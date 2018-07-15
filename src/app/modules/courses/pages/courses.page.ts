@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { SearchService } from '../../shared/services/search.service';
 import { Subscription } from 'rxjs';
-import { CourseInterface } from '../../shared/models/course/course.interface';
+import { CourseInterface } from '../../shared/course/model/course.interface';
 import { FilterPipe } from '../../shared/pipes/filter/filter.pipe';
-import { TEST_COURSES } from './courses-data';
+import { TEST_COURSES } from '../../shared/course/services/courses-data';
+import { CourseService } from '../../shared/course/services/course.service';
 
 @Component({
     selector: 'vc-courses-page',
@@ -18,7 +19,9 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
 
     private searchSubscription: Subscription;
 
-    constructor(private searchService: SearchService, private filter: FilterPipe) {
+    constructor(private courseService: CourseService,
+                private searchService: SearchService,
+                private filter: FilterPipe) {
         this.courses = [];
     }
 
@@ -29,7 +32,7 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
             });
         });
 
-        this.testData = TEST_COURSES;
+        this.testData = this.courseService.getAll();
         this.courses = this.testData;
     }
 

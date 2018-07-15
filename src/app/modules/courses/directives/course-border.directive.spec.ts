@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
 import { Component, Input } from '@angular/core';
-import { CourseInterface } from '../../shared/models/course/course.interface';
+import { CourseInterface } from '../../shared/course/model/course.interface';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CourseBorderDirective } from './course-border.directive';
 

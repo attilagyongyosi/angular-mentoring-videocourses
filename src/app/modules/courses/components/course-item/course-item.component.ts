@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CourseInterface } from '../../../shared/models/course/course.interface';
+import { CourseInterface } from '../../../shared/course/model/course.interface';
 
 @Component({
     selector: 'vc-course-item',

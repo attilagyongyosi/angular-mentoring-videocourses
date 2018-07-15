@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseItemComponent } from './course-item.component';
 import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { Course } from '../../../shared/models/course/course';
-import { CourseInterface } from '../../../shared/models/course/course.interface';
+import { Course } from '../../../shared/course/model/course';
+import { CourseInterface } from '../../../shared/course/model/course.interface';
 
 @Component({
     selector: 'vc-course-item-host',

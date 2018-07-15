@@ -1,5 +1,5 @@
-import { Course } from '../../shared/models/course/course';
-import { CourseInterface } from '../../shared/models/course/course.interface';
+import { Course } from '../model/course';
+import { CourseInterface } from '../model/course.interface';
 
 export const TEST_COURSES: CourseInterface[] = [
     new Course({

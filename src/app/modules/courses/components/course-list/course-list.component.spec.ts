@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CourseListComponent } from './course-list.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { CourseInterface } from '../../../shared/models/course/course.interface';
+import { CourseInterface } from '../../../shared/course/model/course.interface';
 
 describe('CourseListComponent', () => {
     let component: CourseListComponent;
