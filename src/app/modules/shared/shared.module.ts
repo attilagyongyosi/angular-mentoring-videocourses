@@ -5,8 +5,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { CommonModule } from '@angular/common';
 import { SearchService } from './services/search.service';
 import { FormsModule } from '@angular/forms';
-import { DurationPipe } from './pipes/duration.pipe';
-import { OrderByPipe } from './pipes/order-by.pipe';
+import { DurationPipe } from './pipes/duration/duration.pipe';
+import { OrderByPipe } from './pipes/order-by/order-by.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
 
 @NgModule({
     imports: [
@@ -18,17 +19,20 @@ import { OrderByPipe } from './pipes/order-by.pipe';
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,
-        OrderByPipe
+        OrderByPipe,
+        FilterPipe
     ],
     exports: [
         ButtonComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,
-        OrderByPipe
+        OrderByPipe,
+        FilterPipe
     ],
     providers: [
-        SearchService
+        SearchService,
+        FilterPipe
     ]
 })
 export class SharedModule {}
