@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
     styleUrls: [ './authentication-buttons.component.scss' ]
 })
 export class AuthenticationButtonsComponent  {
+    // todo: make it dumber?
     constructor(private router: Router, private authService: AuthService) { }
 
     public logout(): void {

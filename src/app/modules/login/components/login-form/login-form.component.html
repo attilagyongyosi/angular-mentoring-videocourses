@@ -9,5 +9,9 @@
         <input id="password" name="password" [(ngModel)]="credentials.password">
     </div>
 
-    <vc-button label="Log in" type="info" (click)="login()"></vc-button>
+    <vc-button class="login-form__submit"
+               label="Log in"
+               type="normal"
+               (click)="login()">
+    </vc-button>
 </form>

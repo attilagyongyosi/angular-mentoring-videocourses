@@ -11,6 +11,7 @@ import { filter } from 'rxjs/operators';
 export class HeaderComponent implements OnInit {
     public isAuthenticated = false;
 
+    // todo: make it dumber?
     constructor(private router: Router, private authService: AuthService) {}
 
     public ngOnInit(): void {
