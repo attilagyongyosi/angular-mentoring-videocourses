@@ -1,5 +1,7 @@
 <header class="header">
     <vc-logo class="header__logo"></vc-logo>
     <p class="header__title">Videocourses training catalog</p>
-    <vc-authentication-buttons class="header__auth-buttons"></vc-authentication-buttons>
+    <vc-authentication-buttons *ngIf="isAuthenticated"
+                               class="header__auth-buttons">
+    </vc-authentication-buttons>
 </header>

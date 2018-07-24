@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../shared/auth/services/auth.service';
+import { Credentials } from '../../shared/auth/models/credentials';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'vc-login-page',
-    templateUrl: 'login.page.html'
+    templateUrl: 'login.page.html',
+    styleUrls: [ 'login.page.scss' ]
 })
 export class LoginPageComponent {
-    constructor(private authService: AuthService) {}
+
+    constructor(private router: Router, private authService: AuthService) {}
+
+    public login(credentials: Credentials): void {
+        this.authService.login(credentials);
+        this.router.navigate(['/courses']);
+    }
 }

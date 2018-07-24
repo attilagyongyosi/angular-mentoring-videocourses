@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/auth/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'vc-authentication-buttons',
     templateUrl: './authentication-buttons.component.html',
-    styleUrls: ['./authentication-buttons.component.scss']
+    styleUrls: [ './authentication-buttons.component.scss' ]
 })
-export class AuthenticationButtonsComponent implements OnInit {
-  constructor() { }
+export class AuthenticationButtonsComponent  {
+    constructor(private router: Router, private authService: AuthService) { }
 
-  ngOnInit() {
-  }
-
+    public logout(): void {
+        this.authService.logout();
+        this.router.navigate(['/']);
+    }
 }

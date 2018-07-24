@@ -1,0 +1,13 @@
+<form class="login-form">
+    <div class="login-form__block">
+        <label for="username">User Name</label>
+        <input id="username" name="username" [(ngModel)]="credentials.userName">
+    </div>
+
+    <div class="login-form__block">
+        <label for="password">Password</label>
+        <input id="password" name="password" [(ngModel)]="credentials.password">
+    </div>
+
+    <vc-button label="Log in" type="info" (click)="login()"></vc-button>
+</form>

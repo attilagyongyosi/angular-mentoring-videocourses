@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../shared/auth/services/auth.service';
+import { NavigationStart, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'vc-header',
@@ -6,6 +9,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: [ './header.component.scss' ]
 })
 export class HeaderComponent implements OnInit {
-    constructor() { }
-    ngOnInit() { }
+    public isAuthenticated = false;
+
+    constructor(private router: Router, private authService: AuthService) {}
+
+    public ngOnInit(): void {
+        this.router.events
+            .pipe(filter(event => event instanceof NavigationStart))
+            .subscribe(() => {
+                this.isAuthenticated = this.authService.isAuthenticated();
+            });
+    }
 }

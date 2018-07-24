@@ -1,0 +1,13 @@
+:host {
+    padding: 16px;
+
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-form__block {
+        display: flex;
+        -ms-flex-direction: column;
+    }
+}
