@@ -9,6 +9,7 @@ import { DurationPipe } from './pipes/duration/duration.pipe';
 import { OrderByPipe } from './pipes/order-by/order-by.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { CourseService } from './course/services/course.service';
+import { AuthService } from './auth/services/auth.service';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { CourseService } from './course/services/course.service';
         FilterPipe
     ],
     providers: [
+        AuthService,
         CourseService,
         SearchService,
         FilterPipe
