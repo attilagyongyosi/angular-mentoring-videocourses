@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../../shared/auth/services/auth.service';
 import { Router } from '@angular/router';
 
@@ -13,6 +13,7 @@ export class AuthenticationButtonsComponent  {
 
     public logout(): void {
         this.authService.logout();
+        console.log('Logout');
         this.router.navigate(['/']);
     }
 }

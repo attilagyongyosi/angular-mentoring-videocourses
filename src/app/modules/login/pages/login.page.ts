@@ -14,6 +14,7 @@ export class LoginPageComponent {
 
     public login(credentials: Credentials): void {
         this.authService.login(credentials);
+        console.log('Logged in successfully.');
         this.router.navigate(['/courses']);
     }
 }
