@@ -32,15 +32,26 @@ export class CoursesPageComponent implements OnInit, OnDestroy {
             });
         });
 
-        this.testData = this.courseService.getAll();
-        this.courses = this.testData;
+        this.refreshData();
     }
 
     public loadMore(): void {
         console.log('Loading more courses...');
     }
 
+    public delete(id: number): void {
+        if (confirm('Do you really want to remove this course?')) {
+            this.courseService.remove(id);
+            this.refreshData();
+        }
+    }
+
     public ngOnDestroy(): void {
         this.searchSubscription.unsubscribe();
+    }
+
+    private refreshData(): void {
+        this.testData = this.courseService.getAll();
+        this.courses = this.testData;
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
 
 @Component({
@@ -11,8 +11,12 @@ export class CourseListComponent {
     @Input()
     public courses: CourseInterface[] = [];
 
-    public deleteCourse(id: number): void {
-        console.log('Course to delete:', id);
+    @Output()
+    public onDelete = new EventEmitter<number>();
+
+    // @todo: let an event service handle this across components.
+    public emitDelete(id) {
+        this.onDelete.emit(id);
     }
 
     public sort(course1: CourseInterface, course2: CourseInterface): number {

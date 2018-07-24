@@ -1,4 +1,7 @@
 <vc-action-bar></vc-action-bar>
-<vc-course-list [courses]="courses" class="courses-page__list"></vc-course-list>
+<vc-course-list [courses]="courses"
+                (onDelete)="delete($event)"
+                class="courses-page__list">
+</vc-course-list>
 <p *ngIf="!courses.length">No data. Feel free to add new course.</p>
 <vc-button label="Load more" (click)="loadMore()"></vc-button>
