@@ -7,6 +7,7 @@ import { CoursesModule } from './modules/courses/courses.module';
 import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginModule } from './modules/login/login.module';
+import { CreateCourseModule } from './modules/create-course/create-course.module';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { LoginModule } from './modules/login/login.module';
         RouterModule.forRoot(ROUTES),
         LayoutModule,
         LoginModule,
-        CoursesModule
+        CoursesModule,
+        CreateCourseModule
     ],
     declarations: [
         AppComponent

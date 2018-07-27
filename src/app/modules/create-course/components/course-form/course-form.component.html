@@ -1,0 +1,31 @@
+<form class="course-form">
+    <div class="course-form__block">
+        <label for="title">Title:</label>
+        <input type="text" id="title" [(ngModel)]="course.title">
+    </div>
+
+    <div class="course-form__block">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="course.description"></textarea>
+    </div>
+
+    <div class="course-form__block">
+        <label for="date">Date:</label>
+        <textarea id="date" [(ngModel)]="course.creationDate"></textarea>
+    </div>
+
+    <div class="course-form__block">
+        <label for="duration">Duration:</label>
+        <textarea id="duration" [(ngModel)]="course.duration"></textarea>
+    </div>
+
+    <div class="course-form__block">
+        <label for="authors">Authors:</label>
+        <textarea id="authors"></textarea>
+    </div>
+
+    <div class="course-form__buttons">
+        <vc-button label="Save" type="normal"></vc-button>
+        <vc-button label="Cancel" type="normal"></vc-button>
+    </div>
+</form>
