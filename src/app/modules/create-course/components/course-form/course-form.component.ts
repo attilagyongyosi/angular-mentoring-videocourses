@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'vc-course-form',
@@ -7,5 +8,22 @@ import { CourseInterface } from '../../../shared/course/model/course.interface';
     styleUrls: [ 'course-form.component.scss' ]
 })
 export class CourseFormComponent {
-    private course: CourseInterface;
+    public course: CourseInterface = {
+        id: undefined,
+        title: '',
+        description: '',
+        duration: 0,
+        creationDate: undefined,
+        topRated: false
+    };
+
+    constructor(private router: Router) {}
+
+    public save(): void {
+        console.log(this.course);
+    }
+
+    public cancel(): void {
+        this.router.navigate([ '/courses' ]);
+    }
 }

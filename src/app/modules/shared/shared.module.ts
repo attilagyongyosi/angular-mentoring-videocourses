@@ -10,6 +10,7 @@ import { OrderByPipe } from './pipes/order-by/order-by.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { CourseService } from './course/services/course.service';
 import { AuthService } from './auth/services/auth.service';
+import { DurationInputComponent } from './components/duration-input/duration-input.component';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { AuthService } from './auth/services/auth.service';
     ],
     declarations: [
         ButtonComponent,
+        DurationInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,
@@ -26,6 +28,7 @@ import { AuthService } from './auth/services/auth.service';
     ],
     exports: [
         ButtonComponent,
+        DurationInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,
