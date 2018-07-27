@@ -8,12 +8,14 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginModule } from './modules/login/login.module';
 import { CreateCourseModule } from './modules/create-course/create-course.module';
+import { NotFoundModule } from './modules/not-found/not-found.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(ROUTES),
         LayoutModule,
+        NotFoundModule,
         LoginModule,
         CoursesModule,
         CreateCourseModule
