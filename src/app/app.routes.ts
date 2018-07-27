@@ -5,10 +5,10 @@ import { CreateCoursePageComponent } from './modules/create-course/pages/create-
 import { NotFoundPageComponent } from './modules/not-found/pages/not-found.page';
 
 export const ROUTES: Route[] = [
-    { path: '', redirectTo: '/courses', pathMatch: 'full' },
     { path: 'login', component: LoginPageComponent },
     { path: 'courses', component: CoursesPageComponent },
-    { path: 'courses/:id', component: CoursesPageComponent },
     { path: 'courses/new', component: CreateCoursePageComponent },
+    { path: 'courses/:id', component: NotFoundPageComponent },
+    { path: '', redirectTo: '/courses', pathMatch: 'full' },
     { path: '**', component: NotFoundPageComponent }
 ];
