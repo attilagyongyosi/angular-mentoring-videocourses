@@ -15,8 +15,15 @@ export class CourseItemComponent {
     @Output()
     public onDelete = new EventEmitter<number>();
 
-    public emitDelete() {
+    @Output()
+    public onEdit = new EventEmitter<CourseInterface>();
+
+    public emitDelete(): void {
         this.onDelete.emit(this.course.id);
+    }
+
+    public emitEdit(): void {
+        this.onEdit.emit(this.course);
     }
 
 }

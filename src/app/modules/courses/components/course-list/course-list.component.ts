@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'vc-course-list',
@@ -14,9 +15,15 @@ export class CourseListComponent {
     @Output()
     public onDelete = new EventEmitter<number>();
 
+    constructor(private router: Router) {}
+
     // @todo: let an event service handle this across components.
     public emitDelete(id) {
         this.onDelete.emit(id);
+    }
+
+    public editCourse(course: CourseInterface): void {
+        this.router.navigateByUrl(`/courses/${course.id}`);
     }
 
     public sort(course1: CourseInterface, course2: CourseInterface): number {

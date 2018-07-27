@@ -1,5 +1,6 @@
 <vc-course-item *ngFor="let course of courses | vcOrderBy: sort"
                 vcCourseBorder
                 [course]="course"
-                (onDelete)="emitDelete($event)">
+                (onDelete)="emitDelete($event)"
+                (onEdit)="editCourse($event)">
 </vc-course-item>
