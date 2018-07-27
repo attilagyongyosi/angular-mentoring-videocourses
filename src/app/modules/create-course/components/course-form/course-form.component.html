@@ -10,8 +10,10 @@
     </div>
 
     <div class="course-form__block">
-        <label for="date">Date:</label>
-        <textarea id="date" [(ngModel)]="course.creationDate" name="date"></textarea>
+        <label>
+            Date:
+            <vc-date-input (onChange)="updateDate($event)"></vc-date-input>
+        </label>
     </div>
 
     <div class="course-form__block">

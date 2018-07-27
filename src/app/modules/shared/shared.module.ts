@@ -11,6 +11,7 @@ import { FilterPipe } from './pipes/filter/filter.pipe';
 import { CourseService } from './course/services/course.service';
 import { AuthService } from './auth/services/auth.service';
 import { DurationInputComponent } from './components/duration-input/duration-input.component';
+import { DateInputComponent } from './components/date-input/date-input.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { DurationInputComponent } from './components/duration-input/duration-inp
     declarations: [
         ButtonComponent,
         DurationInputComponent,
+        DateInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,
@@ -29,6 +31,7 @@ import { DurationInputComponent } from './components/duration-input/duration-inp
     exports: [
         ButtonComponent,
         DurationInputComponent,
+        DateInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
         DurationPipe,

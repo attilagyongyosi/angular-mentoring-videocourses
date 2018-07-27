@@ -19,6 +19,10 @@ export class CourseFormComponent {
 
     constructor(private router: Router) {}
 
+    public updateDate(date: string): void {
+        this.course.creationDate = new Date(date);
+    }
+
     public save(): void {
         console.log(this.course);
     }
