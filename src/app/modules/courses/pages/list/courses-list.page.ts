@@ -5,6 +5,7 @@ import { CourseInterface } from '../../../shared/course/model/course.interface';
 import { FilterPipe } from '../../../shared/pipes/filter/filter.pipe';
 import { TEST_COURSES } from '../../../shared/course/services/courses-data';
 import { CourseService } from '../../../shared/course/services/course.service';
+import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcrumbs.service';
 
 @Component({
     selector: 'vc-courses-list-page',
@@ -19,13 +20,19 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
 
     private searchSubscription: Subscription;
 
-    constructor(private courseService: CourseService,
+    constructor(private breadcrumbsService: BreadcrumbsService,
+                private courseService: CourseService,
                 private searchService: SearchService,
                 private filter: FilterPipe) {
         this.courses = [];
     }
 
     public ngOnInit(): void {
+        this.breadcrumbsService.changeBreadcrumbs([{
+            label: 'Video Courses',
+            url: '/courses'
+        }]);
+
         this.searchSubscription = this.searchService.searchEvent$.subscribe((term) => {
             this.courses = this.filter.transform(this.testData, (course) => {
                 return course.title.toLowerCase().indexOf(term.toLowerCase()) > -1;

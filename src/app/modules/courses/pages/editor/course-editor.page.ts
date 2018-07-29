@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../../../shared/course/services/course.service';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
+import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcrumbs.service';
 
 @Component({
     selector: 'vc-course-editor-page',
@@ -13,6 +14,7 @@ export class CourseEditorPageComponent implements OnInit {
 
     constructor(private router: Router,
                 private activeRoute: ActivatedRoute,
+                private breadcrumbsService: BreadcrumbsService,
                 private courseService: CourseService) {}
 
     public ngOnInit(): void {
@@ -28,6 +30,13 @@ export class CourseEditorPageComponent implements OnInit {
         this.activeRoute.params.subscribe(params => {
             if (params.id) {
                 this.course = this.courseService.get(+params.id);
+                this.breadcrumbsService.changeBreadcrumbs([{
+                    label: 'Video Courses',
+                    url: '/courses'
+                }, {
+                    label: params.id,
+                    url: `/courses/${params.id}`
+                }]);
             }
         });
     }

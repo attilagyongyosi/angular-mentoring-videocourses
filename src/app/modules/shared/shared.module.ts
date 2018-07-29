@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import { ButtonComponent } from './components/button/button.component';
-import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { BreadcrumbsComponent } from './breadcrumbs/components/breadcrumbs/breadcrumbs.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CommonModule } from '@angular/common';
 import { SearchService } from './services/search.service';
@@ -13,6 +13,7 @@ import { AuthService } from './auth/services/auth.service';
 import { DurationInputComponent } from './components/duration-input/duration-input.component';
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { RouterModule } from '@angular/router';
+import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
 
 @NgModule({
     imports: [
@@ -44,6 +45,7 @@ import { RouterModule } from '@angular/router';
         AuthService,
         CourseService,
         SearchService,
+        BreadcrumbsService,
         FilterPipe
     ]
 })
