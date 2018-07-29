@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'vc-date-input',
@@ -8,10 +8,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 })
 export class DateInputComponent {
 
+    @Input()
+    public date = Date.now().toString();
+
     @Output()
     public onChange: EventEmitter<string> = new EventEmitter<string>();
-
-    public date = '';
 
     public change(value: string): void {
         this.date = value;

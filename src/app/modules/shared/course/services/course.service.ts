@@ -15,7 +15,13 @@ export class CourseService {
     }
 
     public save(course: CourseInterface): CourseInterface {
-        CourseService.courses.push(course);
+        console.log(`Saving ${course}...`);
+        const existingIndex = CourseService.courses.indexOf(course);
+        if (existingIndex > -1) {
+            CourseService.courses[existingIndex] = course;
+        } else {
+            CourseService.courses.push(course);
+        }
         return course;
     }
 

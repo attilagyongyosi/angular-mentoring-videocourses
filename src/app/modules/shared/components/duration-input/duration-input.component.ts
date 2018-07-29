@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'vc-duration-input',
@@ -8,10 +8,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 })
 export class DurationInputComponent {
 
+    @Input()
+    public duration = 0;
+
     @Output()
     public onChange: EventEmitter<number> = new EventEmitter<number>();
-
-    public duration = 0;
 
     public emitValue(value: number): void {
         this.duration = value;

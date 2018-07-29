@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,9 @@ export class CourseFormComponent {
     @Input()
     public course: CourseInterface;
 
+    @Output()
+    public onSave: EventEmitter<CourseInterface> = new EventEmitter<CourseInterface>();
+
     constructor(private router: Router) {}
 
     public updateDate(date: string): void {
@@ -19,7 +22,7 @@ export class CourseFormComponent {
     }
 
     public save(): void {
-        console.log(this.course);
+        this.onSave.emit(this.course);
     }
 
     public cancel(): void {

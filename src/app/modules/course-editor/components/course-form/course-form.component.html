@@ -12,14 +12,14 @@
     <div class="course-form__block">
         <label>
             Date:
-            <vc-date-input (onChange)="updateDate($event)"></vc-date-input>
+            <vc-date-input [date]="course.creationDate" (onChange)="updateDate($event)"></vc-date-input>
         </label>
     </div>
 
     <div class="course-form__block">
         <label>
             Duration:
-            <vc-duration-input (onChange)="course.duration = $event"></vc-duration-input>
+            <vc-duration-input [duration]="course.duration" (onChange)="course.duration = $event"></vc-duration-input>
         </label>
     </div>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from '../../shared/course/services/course.service';
 import { CourseInterface } from '../../shared/course/model/course.interface';
 
@@ -11,7 +11,8 @@ import { CourseInterface } from '../../shared/course/model/course.interface';
 export class CourseEditorPageComponent implements OnInit {
     private course: CourseInterface;
 
-    constructor(private activeRoute: ActivatedRoute,
+    constructor(private router: Router,
+                private activeRoute: ActivatedRoute,
                 private courseService: CourseService) {}
 
     public ngOnInit(): void {
@@ -29,6 +30,11 @@ export class CourseEditorPageComponent implements OnInit {
                 this.course = this.courseService.get(+params.id);
             }
         });
+    }
+
+    public save(course: CourseInterface): void {
+        this.courseService.save(course);
+        this.router.navigate([ '/courses' ]);
     }
 
 }
