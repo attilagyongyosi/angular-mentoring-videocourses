@@ -12,11 +12,13 @@ import { CourseService } from './course/services/course.service';
 import { AuthService } from './auth/services/auth.service';
 import { DurationInputComponent } from './components/duration-input/duration-input.component';
 import { DateInputComponent } from './components/date-input/date-input.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        RouterModule
     ],
     declarations: [
         ButtonComponent,

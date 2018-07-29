@@ -1,17 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SearchService } from '../../shared/services/search.service';
+import { SearchService } from '../../../shared/services/search.service';
 import { Subscription } from 'rxjs';
-import { CourseInterface } from '../../shared/course/model/course.interface';
-import { FilterPipe } from '../../shared/pipes/filter/filter.pipe';
-import { TEST_COURSES } from '../../shared/course/services/courses-data';
-import { CourseService } from '../../shared/course/services/course.service';
+import { CourseInterface } from '../../../shared/course/model/course.interface';
+import { FilterPipe } from '../../../shared/pipes/filter/filter.pipe';
+import { TEST_COURSES } from '../../../shared/course/services/courses-data';
+import { CourseService } from '../../../shared/course/services/course.service';
 
 @Component({
-    selector: 'vc-courses-page',
-    templateUrl: './courses.page.html',
-    styleUrls: [ './courses.page.scss' ]
+    selector: 'vc-courses-list-page',
+    templateUrl: './courses-list.page.html',
+    styleUrls: [ './courses-list.page.scss' ]
 })
-export class CoursesPageComponent implements OnInit, OnDestroy {
+export class CoursesListPageComponent implements OnInit, OnDestroy {
 
     private testData: CourseInterface[];
 

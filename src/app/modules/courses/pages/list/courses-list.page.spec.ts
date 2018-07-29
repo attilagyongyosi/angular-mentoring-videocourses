@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoursesPageComponent } from './courses.page';
+import { CoursesPageComponent } from './courses-list.page';
 import { NO_ERRORS_SCHEMA, Pipe, PipeTransform } from '@angular/core';
 import { SearchService } from '../../shared/services/search.service';
 import { Subject } from 'rxjs';

@@ -1,1 +1,5 @@
-<p>Courses</p>
+<ol>
+    <li *ngFor="let breadcrumb of breadcrumbs">
+        <span [routerLink]="[ breadcrumb.url ]">{{ breadcrumb.label }}</span>
+    </li>
+</ol>

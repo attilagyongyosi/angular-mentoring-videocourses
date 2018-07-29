@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CourseService } from '../../shared/course/services/course.service';
-import { CourseInterface } from '../../shared/course/model/course.interface';
+import { CourseService } from '../../../shared/course/services/course.service';
+import { CourseInterface } from '../../../shared/course/model/course.interface';
 
 @Component({
     selector: 'vc-course-editor-page',
@@ -9,7 +9,7 @@ import { CourseInterface } from '../../shared/course/model/course.interface';
     styleUrls: [ 'course-editor.page.scss' ]
 })
 export class CourseEditorPageComponent implements OnInit {
-    private course: CourseInterface;
+    public course: CourseInterface;
 
     constructor(private router: Router,
                 private activeRoute: ActivatedRoute,
