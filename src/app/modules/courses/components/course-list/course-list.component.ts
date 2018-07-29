@@ -22,10 +22,6 @@ export class CourseListComponent {
         this.onDelete.emit(id);
     }
 
-    public editCourse(course: CourseInterface): void {
-        this.router.navigateByUrl(`/courses/${course.id}`);
-    }
-
     public sort(course1: CourseInterface, course2: CourseInterface): number {
         return course2.creationDate.getTime() - course1.creationDate.getTime();
     }

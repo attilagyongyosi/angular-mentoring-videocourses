@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
 import { Router } from '@angular/router';
 
@@ -8,14 +8,9 @@ import { Router } from '@angular/router';
     styleUrls: [ 'course-form.component.scss' ]
 })
 export class CourseFormComponent {
-    public course: CourseInterface = {
-        id: undefined,
-        title: '',
-        description: '',
-        duration: 0,
-        creationDate: undefined,
-        topRated: false
-    };
+
+    @Input()
+    public course: CourseInterface;
 
     constructor(private router: Router) {}
 

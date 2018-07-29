@@ -6,10 +6,12 @@ import { CourseItemComponent } from './components/course-item/course-item.compon
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { CommonModule } from '@angular/common';
 import { CourseBorderDirective } from './directives/course-border.directive';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     imports: [
         CommonModule,
+        RouterModule,
         SharedModule
     ],
     declarations: [
