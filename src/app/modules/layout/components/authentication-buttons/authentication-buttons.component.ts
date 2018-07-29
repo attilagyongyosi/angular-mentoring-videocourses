@@ -13,7 +13,6 @@ export class AuthenticationButtonsComponent  {
 
     public logout(): void {
         this.authService.logout();
-        console.log('Logout');
-        this.router.navigate(['/']);
+        this.router.navigate(['/login']);
     }
 }

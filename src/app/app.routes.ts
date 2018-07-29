@@ -4,19 +4,18 @@ import { LoginPageComponent } from './modules/login/pages/login.page';
 import { CourseEditorPageComponent } from './modules/courses/pages/editor/course-editor.page';
 import { NotFoundPageComponent } from './modules/not-found/pages/not-found.page';
 import { CoursesComponent } from './modules/courses/courses.component';
+import { AuthGuard } from './modules/shared/auth/auth.guard';
 
 export const ROUTES: Routes = [
     { path: 'login', component: LoginPageComponent },
     {
         path: 'courses',
         component: CoursesComponent,
+        canActivateChild: [ AuthGuard ],
         children: [
             {
                 path: '',
-                component: CoursesListPageComponent,
-                data: {
-                    breadcrumb: 'Video Courses'
-                }
+                component: CoursesListPageComponent
             },
             {
                 path: 'new',
@@ -24,10 +23,7 @@ export const ROUTES: Routes = [
             },
             {
                 path: ':id',
-                component: CourseEditorPageComponent,
-                data: {
-                    breadcrumb: ':id'
-                }
+                component: CourseEditorPageComponent
             }
         ]
     },

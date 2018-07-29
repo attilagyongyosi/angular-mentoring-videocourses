@@ -14,6 +14,7 @@ import { DurationInputComponent } from './components/duration-input/duration-inp
 import { DateInputComponent } from './components/date-input/date-input.component';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
     imports: [
@@ -43,6 +44,7 @@ import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
     ],
     providers: [
         AuthService,
+        AuthGuard,
         CourseService,
         SearchService,
         BreadcrumbsService,
