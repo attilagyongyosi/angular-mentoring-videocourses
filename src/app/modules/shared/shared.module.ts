@@ -15,12 +15,14 @@ import { DateInputComponent } from './components/date-input/date-input.component
 import { RouterModule } from '@angular/router';
 import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
 import { AuthGuard } from './auth/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
-        RouterModule
+        RouterModule,
+        HttpClientModule
     ],
     declarations: [
         ButtonComponent,
