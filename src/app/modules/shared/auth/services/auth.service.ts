@@ -4,16 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { LoginResponseModel } from '../models/login-response.model';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { environment } from '../../../../../environments/environment';
+import { UserInfoResponseModel } from '../models/user-info-response.model';
 
 @Injectable()
 export class AuthService {
     private static readonly USER_KEY = 'user';
     private static readonly TOKEN_KEY = 'token';
 
+    public readonly url = environment.api.url;
+
     constructor(private http: HttpClient) {}
 
     public login(credentials: Credentials): Observable<LoginResponseModel> {
-        return this.http.post<LoginResponseModel>('http://localhost:3004/auth/login', {
+        return this.http.post<LoginResponseModel>(`${this.url}/auth/login`, {
             login: credentials.userName,
             password: credentials.password
         }).pipe(
@@ -21,7 +25,7 @@ export class AuthService {
                 localStorage.setItem(AuthService.TOKEN_KEY, response.token);
                 return response;
             }),
-            catchError(() => throwError('Login failed'))
+            catchError(() => throwError(new Error('Login failed!')))
         );
     }
 
@@ -34,7 +38,12 @@ export class AuthService {
         return localStorage.getItem(AuthService.TOKEN_KEY) !== null;
     }
 
-    public getUserInfo(): any {
-        return localStorage.getItem(JSON.parse(AuthService.USER_KEY));
+    public getUserInfo(): Observable<UserInfoResponseModel> {
+        return this.http.get<UserInfoResponseModel>(`${this.url}/auth/userInfo`).pipe(
+            map((response) => {
+                return response;
+            }),
+            catchError(() => throwError('Login failed'))
+        );
     }
 }

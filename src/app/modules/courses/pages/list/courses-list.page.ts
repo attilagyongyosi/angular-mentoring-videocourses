@@ -34,7 +34,7 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
         }]);
 
         this.searchSubscription = this.searchService.searchEvent$.subscribe((term) => {
-            this.courses = this.filter.transform(this.testData, (course) => {
+            this.courses = this.filter.transform(this.testData, (course: CourseInterface) => {
                 return course.title.toLowerCase().indexOf(term.toLowerCase()) > -1;
             });
         });
