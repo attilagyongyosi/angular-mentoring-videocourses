@@ -29,7 +29,10 @@ export class CourseEditorPageComponent implements OnInit {
 
         this.activeRoute.params.subscribe(params => {
             if (params.id) {
-                this.course = this.courseService.get(+params.id);
+                this.courseService.get(+params.id).subscribe(course => {
+                    this.course = course;
+                });
+
                 this.breadcrumbsService.changeBreadcrumbs([{
                     label: 'Video Courses',
                     url: '/courses'
@@ -42,8 +45,9 @@ export class CourseEditorPageComponent implements OnInit {
     }
 
     public save(course: CourseInterface): void {
-        this.courseService.save(course);
-        this.router.navigate([ '/courses' ]);
+        this.courseService.save(course).subscribe(() => {
+            this.router.navigate([ '/courses' ]);
+        });
     }
 
 }

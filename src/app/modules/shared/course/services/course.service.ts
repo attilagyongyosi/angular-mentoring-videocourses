@@ -34,19 +34,16 @@ export class CourseService {
         );
     }
 
-    public get(id: number): CourseInterface {
-        return CourseService.courses.find(course => course.id === id);
+    public get(id: number): Observable<CourseInterface> {
+        return this.http.get<CourseInterface>(`${this.url}/${id}`);
     }
 
-    public save(course: CourseInterface): CourseInterface {
-        console.log(`Saving ${course}...`);
-        const existingIndex = CourseService.courses.indexOf(course);
-        if (existingIndex > -1) {
-            CourseService.courses[existingIndex] = course;
-        } else {
-            CourseService.courses.push(course);
+    public save(course: CourseInterface): Observable<CourseInterface> {
+        if (course.id) {
+            return this.http.put<CourseInterface>(`${this.url}/${course.id}`, course);
         }
-        return course;
+
+        return this.http.post<CourseInterface>(`${this.url}`, course);
     }
 
     public remove(id: number): Observable<Object> {
