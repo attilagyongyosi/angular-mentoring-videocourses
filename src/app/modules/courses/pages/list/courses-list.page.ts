@@ -4,6 +4,7 @@ import { CourseInterface } from '../../../shared/course/model/course.interface';
 import { CourseService } from '../../../shared/course/services/course.service';
 import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcrumbs.service';
 import { PageModel } from '../../../shared/models/page.model';
+import { SearchService } from '../../../shared/services/search.service';
 
 @Component({
     selector: 'vc-courses-list-page',
@@ -19,11 +20,14 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
         count: this.pageSize
     };
 
+    private searchTerm = '';
+
     public courses: CourseInterface[] = [];
 
     private pageSubscriptions: Subscription[] = [];
 
-    constructor(private breadcrumbsService: BreadcrumbsService,
+    constructor(private searchService: SearchService,
+                private breadcrumbsService: BreadcrumbsService,
                 private courseService: CourseService) { }
 
     public ngOnInit(): void {
@@ -31,6 +35,11 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
             label: 'Video Courses',
             url: '/courses'
         }]);
+
+        this.searchService.searchEvent$.subscribe(searchTerm => {
+            this.searchTerm = searchTerm;
+            this.updateCourseData(true);
+        });
 
         this.updateCourseData();
     }
@@ -46,9 +55,9 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
         }
     }
 
-    public updateCourseData(): void {
-        this.courseService.getAll(this.page).subscribe(courses => {
-            this.courses = this.courses.concat(courses);
+    public updateCourseData(overwrite: boolean = false): void {
+        this.courseService.getAll(this.page, this.searchTerm).subscribe(courses => {
+            this.courses = overwrite ? courses : this.courses.concat(courses);
         });
     }
 

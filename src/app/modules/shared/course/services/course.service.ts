@@ -14,11 +14,12 @@ export class CourseService {
 
     constructor(private http: HttpClient) {}
 
-    public getAll(page: PageModel): Observable<CourseInterface[]> {
+    public getAll(page: PageModel, searchTerm: string = ''): Observable<CourseInterface[]> {
         return this.http.get<CourseInterface[]>(
             `${this.url}/courses`,
             {
                 params: {
+                    textFragment: searchTerm,
                     start: `${page.page}`,
                     count: `${page.count}`
                 }
