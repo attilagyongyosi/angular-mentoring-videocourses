@@ -12,9 +12,11 @@ import { PageModel } from '../../../shared/models/page.model';
 })
 export class CoursesListPageComponent implements OnInit, OnDestroy {
 
+    private readonly pageSize = 10;
+
     private page: PageModel = {
         page: 0,
-        count: 10
+        count: this.pageSize
     };
 
     public courses: CourseInterface[] = [];
@@ -30,19 +32,24 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
             url: '/courses'
         }]);
 
-        this.pageSubscriptions.push(this.courseService.getAll(this.page).subscribe(courses => {
-            this.courses = courses;
-        }));
+        this.updateCourseData();
     }
 
     public loadMore(): void {
-        console.log('Loading more courses...');
+        this.page.page += this.pageSize;
+        this.updateCourseData();
     }
 
     public delete(id: number): void {
         if (confirm('Do you really want to remove this course?')) {
             this.courseService.remove(id);
         }
+    }
+
+    public updateCourseData(): void {
+        this.courseService.getAll(this.page).subscribe(courses => {
+            this.courses = this.courses.concat(courses);
+        });
     }
 
     public ngOnDestroy(): void {
