@@ -15,7 +15,8 @@ import { DateInputComponent } from './components/date-input/date-input.component
 import { RouterModule } from '@angular/router';
 import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
 import { AuthGuard } from './auth/auth.guard';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ApiTokenInterceptor } from './auth/api-token.interceptor';
 
 @NgModule({
     imports: [
@@ -50,7 +51,10 @@ import { HttpClientModule } from '@angular/common/http';
         CourseService,
         SearchService,
         BreadcrumbsService,
-        FilterPipe
+        FilterPipe,
+        {
+            provide: HTTP_INTERCEPTORS, useClass: ApiTokenInterceptor, multi: true
+        }
     ]
 })
 export class SharedModule {}

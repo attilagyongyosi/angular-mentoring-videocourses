@@ -38,6 +38,10 @@ export class AuthService {
         return localStorage.getItem(AuthService.TOKEN_KEY) !== null;
     }
 
+    public getToken(): string {
+        return localStorage.getItem(AuthService.TOKEN_KEY);
+    }
+
     public getUserInfo(): Observable<UserInfoResponseModel> {
         return this.http.get<UserInfoResponseModel>(`${this.url}/auth/userInfo`).pipe(
             map((response) => {
