@@ -51,7 +51,10 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
 
     public delete(id: number): void {
         if (confirm('Do you really want to remove this course?')) {
-            this.courseService.remove(id);
+            this.courseService.remove(id).subscribe(() => {
+                this.page.page = 0;
+                this.updateCourseData(true);
+            });
         }
     }
 

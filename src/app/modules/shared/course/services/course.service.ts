@@ -10,13 +10,13 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class CourseService {
     private static courses: CourseInterface[] = TEST_COURSES;
-    private readonly url = environment.api.url;
+    private readonly url = `${environment.api.url}/courses`;
 
     constructor(private http: HttpClient) {}
 
     public getAll(page: PageModel, searchTerm: string = ''): Observable<CourseInterface[]> {
         return this.http.get<CourseInterface[]>(
-            `${this.url}/courses`,
+            this.url,
             {
                 params: {
                     textFragment: searchTerm,
@@ -49,7 +49,7 @@ export class CourseService {
         return course;
     }
 
-    public remove(id: number): void {
-        CourseService.courses = CourseService.courses.filter(course => course.id !== id);
+    public remove(id: number): Observable<Object> {
+        return this.http.delete(`${this.url}/${id}`);
     }
 }
