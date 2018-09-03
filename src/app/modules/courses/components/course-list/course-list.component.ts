@@ -20,7 +20,7 @@ export class CourseListComponent {
     }
 
     public sort(course1: CourseInterface, course2: CourseInterface): number {
-        return course2.creationDate.getTime() - course1.creationDate.getTime();
+        return course2.date.getTime() - course1.date.getTime();
     }
 
 }

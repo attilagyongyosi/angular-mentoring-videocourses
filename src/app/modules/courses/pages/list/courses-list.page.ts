@@ -1,11 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { SearchService } from '../../../shared/services/search.service';
 import { Subscription } from 'rxjs';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
-import { FilterPipe } from '../../../shared/pipes/filter/filter.pipe';
-import { TEST_COURSES } from '../../../shared/course/services/courses-data';
 import { CourseService } from '../../../shared/course/services/course.service';
 import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcrumbs.service';
+import { PageModel } from '../../../shared/models/page.model';
 
 @Component({
     selector: 'vc-courses-list-page',
@@ -14,18 +12,17 @@ import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcr
 })
 export class CoursesListPageComponent implements OnInit, OnDestroy {
 
-    private testData: CourseInterface[];
+    private page: PageModel = {
+        page: 0,
+        count: 10
+    };
 
-    public courses: CourseInterface[];
+    public courses: CourseInterface[] = [];
 
-    private searchSubscription: Subscription;
+    private pageSubscriptions: Subscription[] = [];
 
     constructor(private breadcrumbsService: BreadcrumbsService,
-                private courseService: CourseService,
-                private searchService: SearchService,
-                private filter: FilterPipe) {
-        this.courses = [];
-    }
+                private courseService: CourseService) { }
 
     public ngOnInit(): void {
         this.breadcrumbsService.changeBreadcrumbs([{
@@ -33,13 +30,9 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
             url: '/courses'
         }]);
 
-        this.searchSubscription = this.searchService.searchEvent$.subscribe((term) => {
-            this.courses = this.filter.transform(this.testData, (course: CourseInterface) => {
-                return course.title.toLowerCase().indexOf(term.toLowerCase()) > -1;
-            });
-        });
-
-        this.refreshData();
+        this.pageSubscriptions.push(this.courseService.getAll(this.page).subscribe(courses => {
+            this.courses = courses;
+        }));
     }
 
     public loadMore(): void {
@@ -49,16 +42,12 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
     public delete(id: number): void {
         if (confirm('Do you really want to remove this course?')) {
             this.courseService.remove(id);
-            this.refreshData();
         }
     }
 
     public ngOnDestroy(): void {
-        this.searchSubscription.unsubscribe();
-    }
-
-    private refreshData(): void {
-        this.testData = this.courseService.getAll();
-        this.courses = this.testData;
+        this.pageSubscriptions.forEach(subscription => {
+            subscription.unsubscribe();
+        });
     }
 }

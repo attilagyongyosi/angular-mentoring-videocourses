@@ -1,7 +1,7 @@
 <form class="course-form">
     <div class="course-form__block">
         <label for="title">Title:</label>
-        <input type="text" id="title" [(ngModel)]="course.title" name="title">
+        <input type="text" id="title" [(ngModel)]="course.name" name="title">
     </div>
 
     <div class="course-form__block">
@@ -12,14 +12,14 @@
     <div class="course-form__block">
         <label>
             Date:
-            <vc-date-input [date]="course.creationDate" (onChange)="updateDate($event)"></vc-date-input>
+            <vc-date-input [date]="course.date" (onChange)="updateDate($event)"></vc-date-input>
         </label>
     </div>
 
     <div class="course-form__block">
         <label>
             Duration:
-            <vc-duration-input [duration]="course.duration" (onChange)="course.duration = $event"></vc-duration-input>
+            <vc-duration-input [duration]="course.length" (onChange)="course.length = $event"></vc-duration-input>
         </label>
     </div>
 

@@ -18,13 +18,13 @@ export class CourseBorderDirective {
     }
 
     private isFresh(): boolean {
-        const creationMoment = moment(this.course.creationDate);
+        const creationMoment = moment(this.course.date);
         const thresholdDaysBefore = moment().subtract(CourseBorderDirective.FRESH_THRESHOLD, 'days');
         return creationMoment.isBefore(moment()) && creationMoment.isAfter(thresholdDaysBefore);
     }
 
     private isUpcoming(): boolean {
-        return moment(this.course.creationDate).isAfter(moment());
+        return moment(this.course.date).isAfter(moment());
     }
 
 }

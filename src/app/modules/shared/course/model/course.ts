@@ -2,11 +2,11 @@ import { CourseInterface } from './course.interface';
 
 export class Course implements CourseInterface {
     id: number;
-    title: string;
-    creationDate: Date;
+    name: string;
+    date: Date;
     description: string;
-    duration: number;
-    topRated: boolean;
+    length: number;
+    isTopRated: boolean;
 
     constructor(options: {
         id: number,
@@ -17,10 +17,10 @@ export class Course implements CourseInterface {
         topRated?: boolean
     }) {
         this.id = options.id;
-        this.title = options.title || '';
-        this.creationDate = options.creationDate || new Date();
+        this.name = options.title || '';
+        this.date = options.creationDate || new Date();
         this.description = options.description || '';
-        this.duration = options.duration || 0;
-        this.topRated = options.topRated || false;
+        this.length = options.duration || 0;
+        this.isTopRated = options.topRated || false;
     }
 }

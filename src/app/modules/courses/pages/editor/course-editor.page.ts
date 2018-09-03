@@ -20,11 +20,11 @@ export class CourseEditorPageComponent implements OnInit {
     public ngOnInit(): void {
         this.course = {
             id: 0,
-            title: '',
-            creationDate: undefined,
+            name: '',
+            date: undefined,
             description: '',
-            topRated: false,
-            duration: 0
+            isTopRated: false,
+            length: 0
         };
 
         this.activeRoute.params.subscribe(params => {
