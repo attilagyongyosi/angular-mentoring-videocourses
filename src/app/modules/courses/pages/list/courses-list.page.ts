@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 import { CourseInterface } from '../../../shared/course/model/course.interface';
 import { CourseService } from '../../../shared/course/services/course.service';
 import { BreadcrumbsService } from '../../../shared/breadcrumbs/services/breadcrumbs.service';
 import { PageModel } from '../../../shared/models/page.model';
 import { SearchService } from '../../../shared/services/search.service';
+import { debounce, filter } from 'rxjs/operators';
 
 @Component({
     selector: 'vc-courses-list-page',
@@ -36,7 +37,10 @@ export class CoursesListPageComponent implements OnInit, OnDestroy {
             url: '/courses'
         }]);
 
-        this.searchService.searchEvent$.subscribe(searchTerm => {
+        this.searchService.searchEvent$.pipe(
+            filter(searchTerm => searchTerm.length >= 3 || searchTerm.length === 0),
+            debounce(() => timer(1000))
+        ).subscribe(searchTerm => {
             this.searchTerm = searchTerm;
             this.updateCourseData(true);
         });

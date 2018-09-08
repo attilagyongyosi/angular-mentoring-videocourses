@@ -1,10 +1,5 @@
 <input type="text"
-       [placeholder]="placeholder"
        class="search-bar__input"
-       [(ngModel)]="searchTerm">
-
-<vc-button class="search-bar__search-button"
-           label="Search"
-           type="normal"
-           (click)="emitSearch()">
-</vc-button>
+       [placeholder]="placeholder"
+       [(ngModel)]="searchTerm"
+       (ngModelChange)="emitSearch($event)">

@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     styleUrls: [ './search-bar.component.scss' ]
 })
 export class SearchBarComponent {
+
     @Input()
     public placeholder: string;
 
@@ -14,7 +15,7 @@ export class SearchBarComponent {
 
     public searchTerm = '';
 
-    public emitSearch() {
-        this.onSearch.emit(this.searchTerm);
+    public emitSearch(searchKeyword: string = '') {
+        this.onSearch.emit(searchKeyword);
     }
 }
