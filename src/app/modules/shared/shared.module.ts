@@ -17,13 +17,18 @@ import { BreadcrumbsService } from './breadcrumbs/services/breadcrumbs.service';
 import { AuthGuard } from './auth/auth.guard';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiTokenInterceptor } from './auth/api-token.interceptor';
+import { SpinnerOverlayComponent } from './spinner-overlay/components/spinner-overlay/spinner-overlay.component';
+import { ApiSpinnerInterceptor } from './auth/api-spinner.interceptor';
+import { SpinnerOverlayService } from './spinner-overlay/services/spinner-overlay.service';
+import { SpinnerModule } from 'angular2-spinner/dist';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         RouterModule,
-        HttpClientModule
+        HttpClientModule,
+        SpinnerModule
     ],
     declarations: [
         ButtonComponent,
@@ -31,6 +36,7 @@ import { ApiTokenInterceptor } from './auth/api-token.interceptor';
         DateInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
+        SpinnerOverlayComponent,
         DurationPipe,
         OrderByPipe,
         FilterPipe
@@ -41,11 +47,13 @@ import { ApiTokenInterceptor } from './auth/api-token.interceptor';
         DateInputComponent,
         BreadcrumbsComponent,
         SearchBarComponent,
+        SpinnerOverlayComponent,
         DurationPipe,
         OrderByPipe,
         FilterPipe
     ],
     providers: [
+        SpinnerOverlayService,
         AuthService,
         AuthGuard,
         CourseService,
@@ -53,7 +61,10 @@ import { ApiTokenInterceptor } from './auth/api-token.interceptor';
         BreadcrumbsService,
         FilterPipe,
         {
-            provide: HTTP_INTERCEPTORS, useClass: ApiTokenInterceptor, multi: true
+            provide: HTTP_INTERCEPTORS, useClass: ApiSpinnerInterceptor, multi: true,
+        },
+        {
+            provide: HTTP_INTERCEPTORS, useClass: ApiTokenInterceptor, multi: true,
         }
     ]
 })

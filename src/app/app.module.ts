@@ -8,11 +8,13 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { LoginModule } from './modules/login/login.module';
 import { NotFoundModule } from './modules/not-found/not-found.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         RouterModule.forRoot(ROUTES),
+        SharedModule,
         LayoutModule,
         NotFoundModule,
         LoginModule,
